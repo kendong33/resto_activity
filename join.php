@@ -11,12 +11,12 @@ $sql = "SELECT c.customer_id, c.first_name, c.last_name, c.phone_number,
 $stmt = $resto->prepare($sql);
 $stmt->execute();
 
-$results = $stmt->fetchAll(RESTO::FETCH_ASSOC);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 foreach($results as $row) {
-    echo "Customer ID: {$row['customer_id]} - First Name: {$row['first_name']} 
+    echo "Customer ID: {$row['customer_id']} - First Name: {$row['first_name']} 
     - Last Name: {$row['last_name']} - Phone Number: {$row['phone_number']}<br>";
-    echo ""
+    echo "Order ID: {$row['order_id']} - Order Date: {$row['order_date']} - Quantity: {$row['quantity']}<br><br>";
 }
 
 
